@@ -1,0 +1,84 @@
+
+<p>
+  Hola
+</p>
+
+<nav class="navigation-tab">
+  <div class="left-section">
+  <div class="home-page">Home</div>
+  <div class="item1">Dashboard</div>
+  </div>
+
+  <div class="right-section">
+  <div class="login-page">Login</div>
+  <div class="contact-page">Contact</div>
+  </div>
+</nav>
+
+
+<div class="login-display">
+<mat-card>
+  <mat-card-header class="login-header">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>Please login here</mat-card-subtitle>
+  </mat-card-header>
+
+  <form [formGroup]="formGroup" >
+  <mat-card-content> 
+    <table>
+        <tr>
+          <td>
+            <mat-form-field >
+              <mat-label>Email</mat-label>
+               <input matInput placeholder="enter your email" formControlName="username"/>
+               <mat-error *ngIf="formGroup.get('username').errors?.required">Please enter the username </mat-error>
+               <mat-error *ngIf="formGroup.get('username').errors?.minlength">Required minimum of 6 characters</mat-error>
+               <mat-error *ngIf="formGroup.get('username').errors?.pattern">Enter valid email</mat-error>
+            </mat-form-field>
+           </td>
+        </tr>
+        <br>
+        <tr>
+           <td>
+             <mat-form-field >
+               <mat-label>Password</mat-label>
+                 <input matInput placeholder="enter your password" type="password"  formControlName="password"/>
+                 <mat-error *ngIf="formGroup.get('password').errors?.required">Please enter the password </mat-error>
+                 <mat-error small *ngIf="formGroup.get('password').errors?.pattern">Should Contain 1 Capital Letter, 1 Small letter, 3 Special Characters and 3 numbers</mat-error>
+             </mat-form-field>
+          </td>
+       </tr>
+    </table>
+  </mat-card-content>
+  </form>
+
+  <mat-card-actions>
+    <button mat-raised-button [disabled]="!formGroup.valid" (click)="login(formGroup.value)" color="primary">Login</button>
+  </mat-card-actions>
+</mat-card>
+</div>
+
+<div class="displayingUsersComments">   
+  <div class="jest"> 
+  <mat-card *ngFor="let item of usersComments">
+   <!-- <mat-card-title>{{item.name}}</mat-card-title> -->
+   <mat-card-subtitle>
+     <div>
+       {{item.email}}
+     </div>
+     <mat-checkbox (click)="checkBoxItems(item)"></mat-checkbox>
+     <div>
+        <img height="12" width="12" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg-41dvNsCeaSbuSmN4Wwe4VRPWDQOWmQ0x9UrmkV0QO8-dHfMVZ5wUl-W9ZQsiS7Ov3k&usqp=CAU" 
+        (click)="deleteComment(item.id)"/>
+     </div>
+   </mat-card-subtitle> 
+
+   <mat-card-content>
+    {{item.body}}
+   </mat-card-content>
+  </mat-card>
+</div>
+</div>
+<mat-card-actions class="delete-all-button">
+<button mat-raised-button color="primary" (click)="deleteAllCheckBoxes()">Delete All</button>
+</mat-card-actions>
