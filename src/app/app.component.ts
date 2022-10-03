@@ -17,7 +17,7 @@ export class AppComponent  {
 
  username: string;
  password: string;
- usersComments: any;
+ usersComments;
  checkbox: Array<[]> = [];
 
   ngOnInit(){
