@@ -18,8 +18,6 @@ export class AppComponent  {
  username: string;
  password: string;
  usersComments: any;
- checked: boolean;
-//  checkbox: Array<[]>;
  checkbox: Array<[]> = [];
 
   ngOnInit(){
@@ -71,24 +69,17 @@ export class AppComponent  {
   }
 
   checkBoxItems(item){
-    this.checked = true
-    console.log("the checkbox item is...", this.checkbox)
     this.checkbox.push(item) 
-    console.log(this.checkbox)
   }
 
   deleteAllCheckBoxes(){
     for (let i of this.checkbox){
-      console.log("i valye is...", i['id'])
       for (let j of this.usersComments) {
-        console.log("index, id value is..",j,j.id)
-       if(i['id']==j.id){
-         console.log('yes')
-          this.usersComments.splice(this.usersComments.indexOf(j),1)
-        }
+        i['id'] == j.id 
+          ? this.usersComments.splice(this.usersComments.indexOf(j),1)
+          : console.log()
       }    
     }
-  
   }
 
 }
