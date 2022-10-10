@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { emailVerification } from './app.regex';
 // import { findIndex } from 'rxjs';
+import { ConfigService } from './app.service';
 
 @Component({
   selector: 'my-app',
@@ -15,8 +16,10 @@ export class AppComponent  {
 
   // enmail: emailVerification;
   formGroup: FormGroup;
+  
   constructor(private http: HttpClient, private formBuilder: FormBuilder, 
               // private enmail: emailVerification
+              private config: ConfigService,
               ) {}
 
  username: string;
@@ -65,11 +68,16 @@ export class AppComponent  {
   }
   
   displayingUsersComments(){
-   this.http.get<any>('https://jsonplaceholder.typicode.com/posts/1/comments',).subscribe((resp)=>
-   { 
-    console.log(resp)
-    this.usersComments=resp
-   })
+    this.config.getData().subscribe((response)=>{
+      console.log(response)
+      this.usersComments = response
+    })
+
+  //  this.http.get<any>('https://jsonplaceholder.typicode.com/posts/1/comments',).subscribe((resp)=>
+  //  { 
+  //   console.log(resp)
+  //   this.usersComments=resp
+  //  })
    console.log("the data from get apii is...", this.usersComments)
   }
   

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+// import { ConfigService } from './app.service';
 // import { CustomMaterialModule } from './scc/material.module';
 
 // import {
@@ -44,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   
             ],
   declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  
 })
 export class AppModule { }
