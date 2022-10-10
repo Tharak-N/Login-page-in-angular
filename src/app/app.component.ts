@@ -26,15 +26,22 @@ export class AppComponent  {
   }
 
   checkingFormValidations() {
-    this.formGroup = this.formBuilder.group({
+    this.formGroup = this.formBuilder.group<any>({
       'username': ['', [Validators.required, 
                         Validators.minLength(6), 
-                        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]
+                        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+                        this.emailVerification]
                   ],
       'password': ['', [Validators.required,
                         Validators.pattern('((?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15})')]
                   ],
     });
+  }
+
+
+  emailVerification (fnInstance) {
+    let checkingPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+    return checkingPattern.test(fnInstance.value) ? null : {mailvalidation: true}
   }
 
   login(postMethodData){
@@ -91,3 +98,9 @@ interface PostDetailsFormat {
   password: string 
   status: string | number 
 }
+
+// interface ValidatorsFormat { () => {
+//   username: [],
+//   password: []
+//   } 
+// }

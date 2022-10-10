@@ -33,7 +33,7 @@
                <input matInput placeholder="enter your email" formControlName="username"/>
                <mat-error *ngIf="formGroup.get('username').errors?.required">Please enter the username </mat-error>
                <mat-error *ngIf="formGroup.get('username').errors?.minlength">Required minimum of 6 characters</mat-error>
-               <mat-error *ngIf="formGroup.get('username').errors?.pattern">Enter valid email</mat-error>
+               <mat-error *ngIf="formGroup.get('username').errors?.mailvalidation">Enter valid email</mat-error>
             </mat-form-field>
            </td>
         </tr>
