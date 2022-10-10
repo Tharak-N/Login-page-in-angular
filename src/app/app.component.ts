@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import { emailVerification } from './app.regex';
 // import { findIndex } from 'rxjs';
 
 @Component({
@@ -12,28 +13,34 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 export class AppComponent  {
 
+  // enmail: emailVerification;
   formGroup: FormGroup;
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, 
+              // private enmail: emailVerification
+              ) {}
 
  username: string;
  password: string;
  usersComments;
  checkbox: Array<[]> = [];
+ tet:string 
 
   ngOnInit(){
     this.checkingFormValidations()
     this.displayingUsersComments()
+    
   }
 
   checkingFormValidations() {
     this.formGroup = this.formBuilder.group<any>({
-      'username': ['', [Validators.required, 
-                        Validators.minLength(6), 
-                        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-                        this.emailVerification]
+      username: ['', [Validators.required, 
+                      Validators.minLength(6), 
+                      // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+                      // this.emailverify.gg(fnInstance.value)
+                      this.emailVerification]
                   ],
-      'password': ['', [Validators.required,
-                        Validators.pattern('((?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15})')]
+      password: ['', [Validators.required,
+                      Validators.pattern('((?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15})')]
                   ],
     });
   }
