@@ -89,5 +89,5 @@ export class AppComponent  {
 interface PostDetailsFormat {
   username: string
   password: string 
-  status: any
+  status: string | number
 }
