@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+//import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { emailVerification } from './app.regex';
 // import { findIndex } from 'rxjs';
@@ -17,7 +17,7 @@ export class AppComponent  {
   // enmail: emailVerification;
   formGroup: FormGroup;
   
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder, 
               // private enmail: emailVerification
               private ApiServices: ApiServices,
               ) {}
@@ -55,13 +55,20 @@ export class AppComponent  {
   }
 
   login(postMethodData){
-    if(postMethodData.username && postMethodData.password) {
-    this.http.post<PostDetailsFormat>('https://tharakapi.free.beeceptor.com/login',{
+    let user_login_details = {
       username: postMethodData.username,
-      password: postMethodData.password,
-    }).subscribe(resp => {
-      console.log(resp.status)
-    })
+      password: postMethodData.password
+    }
+    if(postMethodData.username && postMethodData.password) {
+    this.ApiServices.postData(user_login_details).subscribe((response)=>console.log(response.status))
+
+    // this.http.post<PostDetailsFormat>('https://tharakapi.free.beeceptor.com/login',{
+    //   username: postMethodData.username,
+    //   password: postMethodData.password,
+    // }).subscribe(resp => {
+    //   console.log(resp.status)
+    // })
+
   }
     postMethodData.username='';
     postMethodData.password='';
