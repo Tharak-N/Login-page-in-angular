@@ -61,14 +61,6 @@ export class AppComponent  {
     }
     if(postMethodData.username && postMethodData.password) {
     this.ApiServices.postData(user_login_details).subscribe((response)=>console.log(response.status))
-
-    // this.http.post<PostDetailsFormat>('https://tharakapi.free.beeceptor.com/login',{
-    //   username: postMethodData.username,
-    //   password: postMethodData.password,
-    // }).subscribe(resp => {
-    //   console.log(resp.status)
-    // })
-
   }
     postMethodData.username='';
     postMethodData.password='';
@@ -79,13 +71,6 @@ export class AppComponent  {
       console.log(response)
       this.usersComments = response
     })
-
-  //  this.http.get<any>('https://jsonplaceholder.typicode.com/posts/1/comments',).subscribe((resp)=>
-  //  { 
-  //   console.log(resp)
-  //   this.usersComments=resp
-  //  })
-   console.log("the data from get apii is...", this.usersComments)
   }
   
 
