@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-@Injectable({providedIn:'root'})
+@Injectable()
 export class Logger {
   log(log_message) {
      console.log(`${log_message}`)

@@ -23,6 +23,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApiServices } from './app.service';
+import { Logger } from './app.logger';
 
 // import {MatFormFieldControl} from '@angular/material/formfield';
 // import { MatFormFieldControl } from "@angular/material/form-field";
@@ -46,6 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms';
             ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
+  providers: [ ApiServices, Logger]
   
 })
 export class AppModule { }
