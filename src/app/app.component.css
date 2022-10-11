@@ -118,11 +118,12 @@ p {
 }
 
 .covid-report-display .mat-card .subtitle_section {
+  flex-wrap: nowrap;
   display:flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
 }
+
 
 .covid-report-display .mat-card .mat-card-content {
   font-size: 10px;

@@ -9,14 +9,14 @@ export class ApiServices {
   getApiUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments'
   postApiUrl = 'https://tharakapi.free.beeceptor.com/login'
   covidApiUrl = 'https://api.covidtracking.com/v1/us/daily.json'
-  getData (){
+  getData (): Observable<Object>{
     return this.http.get<any>(this.getApiUrl)
   }
 
   postData (data) {
     return this.http.post<any>(this.postApiUrl, data)
   }
-  
+
   covidData(){
     return this.http.get<any>(this.covidApiUrl)
   }
