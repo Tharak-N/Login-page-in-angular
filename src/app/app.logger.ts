@@ -6,7 +6,7 @@ export class Logger {
      console.log(`${log_message}`)
   }
 
-  warn (warn_message) {
+  warn(warn_message) {
     console.log(`${warn_message}`)
   }
 
