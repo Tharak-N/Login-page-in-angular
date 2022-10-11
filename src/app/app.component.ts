@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { emailVerification } from './app.regex';
 // import { findIndex } from 'rxjs';
-import { ConfigService } from './app.service';
+import { ApiServices } from './app.service';
 
 @Component({
   selector: 'my-app',
@@ -19,7 +19,7 @@ export class AppComponent  {
   
   constructor(private http: HttpClient, private formBuilder: FormBuilder, 
               // private enmail: emailVerification
-              private config: ConfigService,
+              private ApiServices: ApiServices,
               ) {}
 
  username: string;
@@ -68,7 +68,7 @@ export class AppComponent  {
   }
   
   displayingUsersComments(){
-    this.config.getData().subscribe((response)=>{
+    this.ApiServices.getData().subscribe((response)=>{
       console.log(response)
       this.usersComments = response
     })

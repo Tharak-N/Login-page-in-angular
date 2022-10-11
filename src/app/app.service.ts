@@ -4,9 +4,10 @@ import {Observable, throwError } from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
  
 @Injectable({providedIn:'root'})
-export class ConfigService {
+export class ApiServices {
   constructor(public http: HttpClient) {}
+  getApiUrl = 'https://jsonplaceholder.typicode.com/posts/1/comments'
   getData (){
-    return this.http.get<any>('https://jsonplaceholder.typicode.com/posts/1/comments')
+    return this.http.get<any>(this.getApiUrl)
   }
 }
