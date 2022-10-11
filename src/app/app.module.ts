@@ -24,7 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiServices } from './app.service';
-import { Logger } from './app.logger';
+// import { Logger } from './app.logger';
 
 // import {MatFormFieldControl} from '@angular/material/formfield';
 // import { MatFormFieldControl } from "@angular/material/form-field";
@@ -48,7 +48,7 @@ import { Logger } from './app.logger';
             ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ ApiServices, Logger]
+  providers: [ ApiServices ]
   
 })
 export class AppModule { }
