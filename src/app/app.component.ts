@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { emailVerification } from './app.regex';
 // import { findIndex } from 'rxjs';
 import { ApiServices } from './app.service';
+import {Logger} from './app.logger';
 
 @Component({
   selector: 'my-app',
@@ -20,6 +21,7 @@ export class AppComponent  {
   constructor(private formBuilder: FormBuilder, 
               // private enmail: emailVerification
               private ApiServices: ApiServices,
+              private logger: Logger,
               ) {}
 
  username: string;
@@ -61,6 +63,7 @@ export class AppComponent  {
     }
     if(postMethodData.username && postMethodData.password) {
     this.ApiServices.postData(user_login_details).subscribe((response)=>console.log(response.status))
+    this.logger.log('Logged in Successfully')
   }
     postMethodData.username='';
     postMethodData.password='';
