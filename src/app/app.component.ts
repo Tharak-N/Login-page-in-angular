@@ -30,11 +30,12 @@ export class AppComponent  {
  usersComments;
  checkbox: Array<[]> = [];
  tet:string 
+ covidReport: any;
 
   ngOnInit(){
     this.checkingFormValidations()
     this.displayingUsersComments()
-    
+    this.covidDataDisplay()
   }
 
   checkingFormValidations() {
@@ -74,6 +75,13 @@ export class AppComponent  {
     this.ApiServices.getData().subscribe((response)=>{
       console.log(response)
       this.usersComments = response
+    })
+  }
+
+  covidDataDisplay() {
+    this.ApiServices.covidData().subscribe((response)=>{
+      console.log(response)
+      this.covidReport = response
     })
   }
   

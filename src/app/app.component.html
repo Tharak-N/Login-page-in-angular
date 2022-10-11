@@ -82,3 +82,15 @@
 <mat-card-actions class="delete-all-button">
 <button mat-raised-button color="primary" (click)="deleteAllCheckBoxes()">Delete All</button>
 </mat-card-actions>
+
+<div class="covid-report-display">
+  <mat-card *ngFor="let item of covidReport">
+    <div class="subtitle_section">
+    <mat-card-subtitle>Deaths {{item.death}}</mat-card-subtitle>
+    <mat-card-subtitle>Positive {{item.positive}}</mat-card-subtitle>
+    <mat-card-subtitle>Total tests {{item.totalTestResults}}</mat-card-subtitle>
+    </div>
+    <mat-card-content>
+      <mat-card-title>HashID</mat-card-title>{{item.hash}}</mat-card-content>
+  </mat-card>
+</div>

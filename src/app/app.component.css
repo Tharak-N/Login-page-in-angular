@@ -103,4 +103,34 @@ p {
   justify-content: space-between;
 }
 
+.covid-report-display{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.covid-report-display .mat-card {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  margin:3px;
+  align-items: center;
+}
+
+.covid-report-display .mat-card .subtitle_section {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.covid-report-display .mat-card .mat-card-content {
+  font-size: 10px;
+  color:rgb(114, 114, 114);
+}
+
+.covid-report-display .mat-card .mat-card-content .mat-card-title{
+  font-size: 12px;
+  color: rgb(56, 56, 56);
+}
 
